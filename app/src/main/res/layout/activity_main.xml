@@ -18,16 +18,21 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="359dp"
-            android:background="@color/custom_blue"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:background="@color/white"
             android:fadeScrollbars="false"
             android:overScrollMode="always"
-            android:padding="15dp"
             android:scrollbars="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@color/white"
                 android:gravity="center_vertical"
                 android:orientation="vertical">
 
@@ -38,13 +43,17 @@
                     android:fontFamily="@font/monda"
                     android:gravity="center|center_vertical"
                     android:minLines="1"
+                    android:textColor="@color/black"
                     android:textSize="24sp" />
+
             </LinearLayout>
         </ScrollView>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:background="@color/custom_blue"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -54,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/monda_bold"
                 android:text="@string/word"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -68,42 +77,43 @@
                 android:hint="@string/enter_here"
                 android:importantForAutofill="no"
                 android:inputType="textPersonName"
-                android:textColor="@color/black"
+                android:textColor="@color/custom_yellow"
+                android:textColorHint="#E3E3E3"
                 android:textSize="30sp"
                 tools:ignore="TextContrastCheck" />
         </LinearLayout>
 
         <RadioGroup
             android:id="@+id/radioGrp"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_weight="0.5"
+            android:background="@color/custom_blue"
             android:clipToPadding="false"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingStart="50dp"
+            android:paddingEnd="50dp">
 
             <RadioButton
                 android:id="@+id/radioButton_asc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_weight="1.5"
                 android:fontFamily="@font/monda"
                 android:text="@string/ascending"
+                android:textColor="@color/white"
                 android:textSize="20sp"
                 tools:ignore="TouchTargetSizeCheck" />
-
-            <Space
-                android:layout_width="20dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1.5" />
 
             <RadioButton
                 android:id="@+id/radioButton_desc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_weight="1.5"
                 android:fontFamily="@font/monda"
                 android:text="@string/descending"
+                android:textColor="@color/white"
                 android:textSize="20sp"
                 tools:ignore="TouchTargetSizeCheck" />
 
@@ -111,37 +121,37 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_marginTop="40dp"
+            android:layout_height="wrap_content"
+            android:background="@color/custom_blue"
             android:gravity="center"
             android:orientation="horizontal"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp">
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
+            android:paddingBottom="50dp">
 
             <Button
                 android:id="@+id/clearBtn"
-                android:layout_width="wrap_content"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1.5"
+                android:layout_weight="1"
                 android:background="@color/custom_red"
                 android:fontFamily="@font/monda_bold"
                 android:text="@string/clear"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="0.8" />
-
             <Button
                 android:id="@+id/addBtn"
-                android:layout_width="wrap_content"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1.5"
+                android:layout_weight="1"
                 android:background="#2BE396"
                 android:fontFamily="@font/monda"
                 android:text="@string/add"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
         </LinearLayout>
