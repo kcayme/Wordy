@@ -11,4 +11,8 @@
     <color name="custom_yellow">#F9D923</color>
     <color name="custom_green">#36AE7C</color>
     <color name="custom_blue">#187498</color>
+    <color name="theme_black">#00171F</color>
+    <color name="theme_blue3">#003459</color>
+    <color name="theme_blue2">#007EA7</color>
+    <color name="theme_blue1">#00A8E8</color>
 </resources>

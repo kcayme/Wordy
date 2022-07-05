@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import com.example.wordy.databinding.ActivityMainBinding
@@ -21,6 +22,7 @@ import kotlin.collections.ArrayList
 * */
 class MainActivity : AppCompatActivity() {
     private var wordList = ArrayList<String>()
+
     @RequiresApi(Build.VERSION_CODES.N)
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,35 +30,49 @@ class MainActivity : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.wordList.movementMethod = ScrollingMovementMethod()
+
         binding.clearBtn.setOnClickListener {
             wordList.clear()
             binding.wordList.text = ""
-            Toast.makeText(this,wordList.toString(),Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"List cleared!",Toast.LENGTH_SHORT).show()
         }
 
         binding.addBtn.setOnClickListener {
-            if(binding.radioGrp.checkedRadioButtonId == -1) Toast.makeText(this,"No order of sorting selected!", Toast.LENGTH_SHORT).show()
-            else if(binding.wordInput.text.toString().isBlank()) Toast.makeText(this, "Input must not be blank!", Toast.LENGTH_SHORT).show()
-            else{
-                val newWord = binding.wordInput.text.toString().trim()
-                wordList.add(newWord)
-                if (binding.radioButtonAsc.isChecked){
-                    Collections.sort(wordList,String.CASE_INSENSITIVE_ORDER)
-                    Toast.makeText(this,"Ascending",Toast.LENGTH_SHORT).show()
-                }
-                else if (binding.radioButtonDesc.isChecked) {
-                    Collections.sort(wordList,String.CASE_INSENSITIVE_ORDER.reversed())
-                    Toast.makeText(this,"Descending Selected",Toast.LENGTH_SHORT).show()
-                }
-                val textview = binding.wordList
-                textview.text = ""
-                for(word in wordList){
-                    val currentText = textview.text.toString()
-                    val appendStr = "$currentText\n$word"
-                    textview.text = appendStr.trim()
-                }
-                binding.wordInput.setText("")
+            processWordInput(binding)
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.N)
+    private fun processWordInput(binding: ActivityMainBinding) {
+        if (binding.radioGrp.checkedRadioButtonId == -1) Toast.makeText(
+            this,
+            "No order of sorting selected!",
+            Toast.LENGTH_SHORT
+        ).show()
+        else if (binding.wordInput.text.toString().isBlank()) Toast.makeText(
+            this,
+            "Input must not be blank!",
+            Toast.LENGTH_SHORT
+        ).show()
+        else {
+            val newWord = binding.wordInput.text.toString().trim()
+            wordList.add(newWord)
+            if (binding.radioButtonAsc.isChecked) {
+                Collections.sort(wordList, String.CASE_INSENSITIVE_ORDER)
+                Toast.makeText(this, "Ascending", Toast.LENGTH_SHORT).show()
+            } else if (binding.radioButtonDesc.isChecked) {
+                Collections.sort(wordList, String.CASE_INSENSITIVE_ORDER.reversed())
+                Toast.makeText(this, "Descending Selected", Toast.LENGTH_SHORT).show()
             }
+            val textview = binding.wordList
+            textview.text = ""
+            for (word in wordList) {
+                val currentText = textview.text.toString()
+                val appendStr = "$currentText\n$word"
+                textview.text = appendStr.trim()
+            }
+            binding.wordInput.setText("")
         }
     }
 }
