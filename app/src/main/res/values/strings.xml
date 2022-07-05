@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Wordy</string>
+    <string name="add">Add</string>
+    <string name="clear">Clear</string>
+    <string name="descending">Descending</string>
+    <string name="ascending">Ascending</string>
+    <string name="word">Word:</string>
+    <string name="enter_here">Enter here</string>
+</resources>
