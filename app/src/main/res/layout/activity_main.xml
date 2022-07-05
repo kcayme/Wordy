@@ -41,7 +41,8 @@
             android:layout_weight="0.3"
             android:background="@color/theme_blue3"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="10dp">
 
             <TextView
                 android:id="@+id/textView"
@@ -62,6 +63,7 @@
                 android:ems="10"
                 android:fontFamily="@font/monda"
                 android:hint="@string/enter_here"
+                android:textCursorDrawable="@null"
                 android:importantForAutofill="no"
                 android:inputType="textPersonName"
                 android:padding="5dp"
